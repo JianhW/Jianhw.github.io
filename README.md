@@ -1,9 +1,27 @@
-## Hi! I'm Jianhw 👋
+## 👋 Hi, I'm Jianhua Wang
 
-🎓 EE Undergraduate @ Xidian University  
-📡 Signal Processing · Communications · Deep Learning  
+🎓 Undergraduate Student in Electronic Engineering  
+📍 Xidian University  
 
-### 🔬 Research Interests
-- Joint radar-communication waveform design
-- Optimization algorithms
-- AI for signal processing
+📡 **Research Interests**
+- Signal Processing
+- Wireless Communications
+- Joint Radar-Communication Waveform Design
+- Optimization Algorithms
+- Deep Learning for Sensing & Communications
+
+🛠 **Skills**
+- MATLAB, Python
+- PyTorch
+- Signal Processing & Numerical Optimization
+
+📂 **Selected Projects**
+- Joint Radar-Communication Waveform Design with Low ISL & PAPR  
+- OFDM / Single-Carrier Signal Optimization  
+- Deep Learning Models for Signal Classification  
+
+🌐 **Homepage**
+- 👉 https://jianhw.github.io
+
+📫 **Contact**
+- GitHub: https://github.com/jianhw
