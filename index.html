@@ -1,779 +1,840 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Jianhua Wang is an undergraduate researcher in Electronic Engineering at Xidian University, working on signal processing, computer vision, waveform design, and optimization.">
-  <meta name="theme-color" content="#ffffff">
-  <title>Jianhua Wang | Homepage</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
-
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="Jianhua Wang — undergraduate researcher at Xidian University working on compositional generalization, computer vision, signal processing, and waveform optimization." name="description"/>
+  <meta content="#ffffff" name="theme-color"/>
+  <title>
+   Jianhua Wang | Academic Homepage
+  </title>
+  <meta content="Jianhua Wang | Academic Homepage" property="og:title"/>
+  <meta content="Undergraduate researcher at Xidian University · Computer Vision &amp; Signal Processing" property="og:description"/>
+  <meta content="website" property="og:type"/>
   <style>
-    :root {
-      --ink: #494e52;
-      --muted: #5f6368;
-      --meta: #7a8088;
-      --line: #e6e6e6;
-      --accent: #ca6f6f;
-      --accent-hover: #c71585;
-      --self-author: #8f1d2c;
-      --venue: #83a1c7;
-      --page-max: 1080px;
-      --sidebar: 205px;
-      --masthead-h: 70px;
-      --body-font: "Arial Rounded MT Bold", Verdana, "Segoe UI", sans-serif;
-      --script-font: Kalam, "Comic Sans MS", sans-serif;
-      --hand-font: "Arial Rounded MT Bold", Verdana, "Comic Sans MS", "Segoe Print", "Lucida Handwriting", "Apple Chancery", Zapfino, sans-serif;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: calc(var(--masthead-h) + 16px);
-      font-size: 16px;
-    }
-
-    @media (min-width: 48em) {
-      html { font-size: 18px; }
-    }
-
-    body {
-      margin: 0;
-      padding: var(--masthead-h) 0 3rem;
-      color: var(--ink);
-      background: #fff;
-      font-family: var(--body-font);
-      font-size: 0.833rem;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    ::selection {
-      color: #fff;
-      background: #000;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    a:hover {
-      color: var(--accent-hover);
-      text-decoration: underline;
-    }
-
-    a:focus-visible,
-    button:focus-visible {
-      outline: 3px solid rgba(202, 111, 111, 0.35);
-      outline-offset: 3px;
-    }
-
-    .skip-link {
-      position: fixed;
-      top: 12px;
-      left: 12px;
-      z-index: 200;
-      padding: 8px 12px;
-      color: #fff;
-      background: var(--accent);
-      border-radius: 6px;
-      transform: translateY(-160%);
-      transition: transform 160ms ease;
-    }
-
-    .skip-link:focus { transform: translateY(0); }
-
-    /* Masthead */
-    .masthead {
-      position: fixed;
-      inset: 0 0 auto;
-      z-index: 100;
-      background: #fff;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .masthead__inner {
-      max-width: var(--page-max);
-      margin: 0 auto;
-      padding: 0.75rem 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .masthead__title {
-      margin: 0;
-      font-family: var(--script-font);
-      font-size: 1.05rem;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    .masthead__title a {
-      color: var(--ink);
-      text-decoration: none;
-    }
-
-    .masthead__title a:hover {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .masthead__nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 0.15rem 1rem;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      font-family: var(--script-font);
-      font-size: 0.95rem;
-      font-weight: 700;
-    }
-
-    .masthead__nav a {
-      color: var(--ink);
-      text-decoration: none;
-    }
-
-    .masthead__nav a:hover,
-    .masthead__nav a[aria-current="true"] {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    /* Layout */
-    #main {
-      max-width: var(--page-max);
-      margin: 0 auto;
-      padding: 1.5rem 1.25rem 0;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: var(--sidebar) minmax(0, 1fr);
-      gap: 4.25rem;
-      align-items: start;
-    }
-
-    .sidebar {
-      position: sticky;
-      top: calc(var(--masthead-h) + 12px);
-    }
-
-    .author__avatar {
-      display: block;
-      width: 100%;
-      max-width: 205px;
-      aspect-ratio: 1;
-      margin: 0 0 0.85rem;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .author__content .author__name {
-      margin: 0 0 0.15rem;
-      font-family: var(--hand-font);
-      font-size: 1rem;
-      font-weight: 700;
-      line-height: 1.3;
-    }
-
-    .author__pronouns {
-      margin: 0 0 0.35rem;
-      color: var(--meta);
-      font-size: 0.72rem;
-    }
-
-    .author__bio {
-      margin: 0 0 0.85rem;
-      color: var(--muted);
-      font-size: 0.78rem;
-      line-height: 1.45;
-    }
-
-    .author__urls {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      font-size: 0.78rem;
-    }
-
-    .author__urls li {
-      margin-bottom: 0.35rem;
-    }
-
-    .author__urls a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      color: var(--ink);
-      text-decoration: none;
-    }
-
-    .author__urls a:hover {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .author__urls i {
-      width: 1.1em;
-      text-align: center;
-      color: var(--muted);
-    }
-
-    .author__urls a:hover i { color: var(--accent); }
-
-    .page__content {
-      min-width: 0;
-      color: var(--muted);
-    }
-
-    .page__content > p {
-      margin: 0 0 1rem;
-      line-height: 1.55;
-    }
-
-    .main-heading {
-      margin: 0 0 1.25rem;
-      font-family: "Permanent Marker", cursive;
-      font-size: 1.3rem;
-      font-weight: 400;
-      line-height: 1.35;
-      text-align: center;
-      color: var(--accent);
-    }
-
-    .page__content h2 {
-      margin: 2rem 0 0.85rem;
-      padding-bottom: 0.35rem;
-      border-bottom: 1px solid var(--line);
-      color: var(--ink);
-      font-family: var(--hand-font);
-      font-size: 1.04rem;
-      font-weight: 700;
-      line-height: 1.3;
-      scroll-margin-top: calc(var(--masthead-h) + 16px);
-    }
-
-    .page__content h2:first-of-type {
-      margin-top: 0.5rem;
-    }
-
-    .self-author {
-      color: var(--self-author);
-      font-weight: 900;
-    }
-
-    /* News / profile lists */
-    .profile-list-section {
-      --profile-accent: #6f86a6;
-      --profile-accent-rgb: 111, 134, 166;
-      margin: 0 0 0.5rem;
-    }
-
-    .profile-list {
-      display: grid;
-      gap: 6px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .profile-list__item {
-      position: relative;
-      display: grid;
-      grid-template-columns: minmax(62px, max-content) minmax(0, 1fr);
-      gap: 8px;
-      align-items: center;
-      padding: 6px 12px 6px 15px;
-      background: linear-gradient(
-        to right,
-        rgba(var(--profile-accent-rgb), 0.075) 0,
-        rgba(var(--profile-accent-rgb), 0.035) 58%,
-        transparent 100%
-      );
-      color: var(--muted);
-      line-height: 1.3;
-    }
-
-    .profile-list__item::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: 3px;
-      background: var(--profile-accent);
-      opacity: 0.72;
-    }
-
-    .profile-list__date {
-      color: var(--profile-accent);
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.025em;
-      white-space: nowrap;
-    }
-
-    .profile-list__title {
-      color: #292d32;
-      font-size: 0.78rem;
-      font-weight: 700;
-    }
-
-    .profile-list__meta {
-      color: var(--meta);
-      font-size: 0.68rem;
-    }
-
-    /* Research interest chips */
-    .interest-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px 12px;
-    }
-
-    .interest-card {
-      padding: 10px 12px;
-      border: 1px solid #ececec;
-      border-radius: 10px;
-      background: #fafafa;
-      color: #292d32;
-      font-size: 0.78rem;
-      font-weight: 700;
-      line-height: 1.35;
-    }
-
-    .interest-card small {
-      display: block;
-      margin-bottom: 3px;
-      color: var(--accent);
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    /* Experience */
-    .experience-container {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px 12px;
-    }
-
-    .experience-card {
-      display: flex;
-      align-items: flex-start;
-      padding: 10px;
-      border-radius: 12px;
-      background: #f9f9f9;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-      transition: box-shadow 0.3s ease;
-    }
-
-    .experience-card:hover {
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    }
-
-    .experience-logo {
-      width: 36px;
-      height: 36px;
-      flex: 0 0 36px;
-      margin-top: 2px;
-      margin-right: 8px;
-      border-radius: 8px;
-      object-fit: contain;
-      background: #fff;
-      border: 1px solid #eee;
-    }
-
-    .experience-info {
-      min-width: 0;
-      font-family: "Segoe UI", sans-serif;
-      font-size: 14px;
-      line-height: 1.45;
-      overflow-wrap: anywhere;
-    }
-
-    .experience-info strong {
-      display: block;
-      font-size: 15px;
-      line-height: 1.35;
-      color: #202124;
-    }
-
-    .experience-date {
-      display: block;
-      margin: 3px 0 2px;
-      color: #70757a;
-      font-size: 13px;
-    }
-
-    .experience-info span {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* Publications & projects */
-    .publication-card,
-    .project-card {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 12px;
-      margin-bottom: 20px;
-      border: 1.5px solid #ddd;
-      border-radius: 8px;
-      background: #fff;
-      color: var(--muted);
-      transition: box-shadow 0.3s ease;
-    }
-
-    .publication-card:hover,
-    .project-card:hover {
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    }
-
-    .pub-media {
-      flex: 0 0 200px;
-      width: 200px;
-      max-width: 100%;
-      aspect-ratio: 5 / 3;
-      border-radius: 8px;
-      overflow: hidden;
-      background: linear-gradient(135deg, #fff5f3 0%, #f0f4fa 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-      font-size: 2rem;
-    }
-
-    .pub-body {
-      min-width: 0;
-      flex: 1;
-    }
-
-    .pub-body strong,
-    .project-card strong {
-      display: block;
-      margin-bottom: 0.35rem;
-      color: #202124;
-      font-size: 0.92rem;
-      line-height: 1.35;
-    }
-
-    .pub-authors {
-      margin: 0 0 0.35rem;
-      font-size: 0.78rem;
-      line-height: 1.45;
-    }
-
-    .pub-meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 7px 11px;
-      margin-top: 5px;
-      font-size: 0.78rem;
-      line-height: 1.35;
-    }
-
-    .pub-venue {
-      color: var(--venue);
-      font-style: italic;
-      font-weight: 700;
-    }
-
-    .pub-links a {
-      white-space: nowrap;
-    }
-
-    .project-type {
-      display: inline-block;
-      margin-bottom: 0.35rem;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: rgba(202, 111, 111, 0.1);
-      color: #934f58;
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 0.5rem;
-    }
-
-    .tag {
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: #f2f2f3;
-      color: #5f6064;
-      font-size: 0.65rem;
-      font-weight: 650;
-    }
-
-    .site-footer {
-      max-width: var(--page-max);
-      margin: 2.5rem auto 0;
-      padding: 1rem 1.25rem 0;
-      border-top: 1px solid var(--line);
-      color: var(--meta);
-      font-size: 0.68rem;
-      text-align: center;
-    }
-
-    @media (max-width: 924px) {
-      .experience-container { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 767px) {
-      body { padding-top: calc(var(--masthead-h) + 8px); }
-
-      .masthead__inner {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0.65rem 1rem;
-      }
-
-      .masthead__nav {
-        width: 100%;
-        justify-content: flex-start;
-        gap: 0.5rem 0.85rem;
-        font-size: 0.88rem;
-      }
-
-      #main { padding: 1rem 1rem 0; }
-
-      .layout {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .sidebar {
-        position: static;
-        display: grid;
-        grid-template-columns: 88px minmax(0, 1fr);
-        gap: 1rem;
-        align-items: center;
-      }
-
-      .author__avatar {
-        max-width: 88px;
-        margin: 0;
-      }
-
-      .main-heading {
-        font-size: clamp(1.55rem, 7vw, 2rem);
-        line-height: 1.25;
-      }
-
-      .interest-grid { grid-template-columns: 1fr; }
-
-      .publication-card,
-      .project-card {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .pub-media {
-        width: 100%;
-        flex-basis: auto;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after {
-        transition-duration: 0.01ms !important;
-      }
-    }
+   :root {
+  --ink: #242c38;
+  --text: #424d5a;
+  --muted: #657180;
+  --blue: #245b93;
+  --line: #e5e9ee;
+  --paper: #fff;
+  --soft: #f7f9fc;
+  --width: 1080px;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 86px;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--text);
+  font: 15px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+.skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+}
+.skip:focus {
+  left: 12px;
+  z-index: 100;
+  background: white;
+  padding: 10px;
+}
+.top {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.top-inner {
+  max-width: var(--width);
+  margin: auto;
+  padding: 13px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.brand {
+  font-weight: 750;
+  color: var(--ink);
+  font-size: 17px;
+  white-space: nowrap;
+}
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 19px;
+  font-size: 13px;
+}
+.nav a {
+  color: var(--text);
+}
+.nav a:hover {
+  color: var(--blue);
+}
+.layout {
+  max-width: var(--width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 205px minmax(0,1fr);
+  gap: 62px;
+  padding: 44px 25px 80px;
+}
+.sidebar {
+  align-self: start;
+  position: sticky;
+  top: 110px;
+}
+.avatar {
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  background: #e9eff6;
+  margin-bottom: 20px;
+  border: 1px solid var(--line);
+}
+.name {
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1.25;
+  margin: 0 0 7px;
+}
+.side-role {
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 13px;
+  margin: 0 0 18px;
+}
+.side-links {
+  display: grid;
+  gap: 7px;
+  font-size: 13px;
+}
+.side-links a {
+  overflow-wrap: anywhere;
+}
+.main {
+  min-width: 0;
+}
+.intro-title {
+  font-size: 29px;
+  line-height: 1.3;
+  color: var(--ink);
+  margin: 0 0 16px;
+  letter-spacing: -.025em;
+}
+.lead {
+  font-size: 15px;
+  line-height: 1.85;
+}
+.section {
+  margin-top: 36px;
+  scroll-margin-top: 90px;
+}
+.section h2 {
+  font-size: 19px;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+  margin: 0 0 17px;
+  letter-spacing: -.01em;
+}
+.section p {
+  margin: 0 0 12px;
+}
+.news {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.news li {
+  display: grid;
+  grid-template-columns: 95px 1fr;
+  gap: 15px;
+  padding: 5px 0;
+}
+.date {
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.research-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.research-tags span {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  color: #405469;
+}
+.entry {
+  padding: 0 0 22px;
+  margin: 0 0 22px;
+  border-bottom: 1px solid #eef1f4;
+}
+.entry:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 15px;
+}
+.entry h3 {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+.authors,.meta {
+  font-size: 13px;
+  color: var(--muted);
+}
+.authors {
+  margin: 0 0 4px !important;
+}
+.self {
+  font-weight: 700;
+  color: #273e59;
+}
+.venue {
+  font-style: italic;
+  color: #425c7b;
+}
+.links {
+  font-size: 13px;
+  margin-top: 6px;
+}
+.links a {
+  margin-right: 13px;
+}
+.status {
+  display: inline-block;
+  font-size: 11px;
+  color: #5d6876;
+  border: 1px solid #d9e0e7;
+  padding: 1px 7px;
+  border-radius: 3px;
+  vertical-align: middle;
+  margin-left: 5px;
+  font-weight: 500;
+}
+.description {
+  margin-top: 9px !important;
+}
+.project-heading {
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.project-meta {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 7px;
+}
+.bullet {
+  padding-left: 18px;
+  margin: 7px 0 0;
+}
+.bullet li {
+  margin: 3px 0;
+}
+.honors {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+.honors li {
+  display: grid;
+  grid-template-columns: 95px 1fr;
+  gap: 15px;
+  padding: 4px 0;
+}
+.education-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+.education-line strong {
+  color: var(--ink);
+}
+.small {
+  font-size: 13px;
+  color: var(--muted);
+}
+.skills {
+  display: grid;
+  grid-template-columns: 125px 1fr;
+  gap: 5px 14px;
+}
+.skills dt {
+  font-weight: 650;
+  color: var(--ink);
+}
+.skills dd {
+  margin: 0;
+}
+.footer {
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 23px;
+}
+.contact-email {
+  overflow-wrap: anywhere;
+}
+@media (max-width:760px) {
+  .top-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px 20px;
+  }
+  .nav {
+    gap: 5px 14px;
+    font-size: 12px;
+  }
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 25px 20px 55px;
+  }
+  .sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 0 18px;
+    align-items: start;
+  }
+  .avatar {
+    width: 90px;
+    height: 90px;
+    grid-row: span 3;
+    margin: 0;
+  }
+  .name {
+    font-size: 20px;
+  }
+  .side-role {
+    margin-bottom: 6px;
+  }
+  .side-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 12px;
+  }
+  .intro-title {
+    font-size: 25px;
+  }
+  .section {
+    margin-top: 29px;
+    scroll-margin-top: 120px;
+  }
+  .news li,.honors li {
+    grid-template-columns: 80px 1fr;
+    gap: 9px;
+  }
+  .education-line,.entry-head {
+    display: block;
+  }
+  .skills {
+    grid-template-columns: 100px 1fr;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+#publications .entry {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px 22px;
+  margin: 0 0 16px;
+  box-shadow: 0 2px 7px rgba(31,48,70,.035);
+  transition: transform .22s ease,box-shadow .22s ease,border-color .22s ease;
+}
+#publications .entry:last-child {
+  margin-bottom: 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+#publications .entry:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(31,48,70,.065);
+  border-color: #d8e2ed;
+}
+#publications .entry:focus-within {
+  border-color: #94b4d6;
+  box-shadow: 0 4px 12px rgba(31,48,70,.065);
+}
+@media (prefers-reduced-motion:reduce) {
+  #publications .entry {
+    transition: none;
+  }
+  #publications .entry:hover {
+    transform: none;
+  }
+}
   </style>
-</head>
-<body class="homepage profile-page">
-  <a class="skip-link" href="#main-content">Skip to content</a>
-
-  <header class="masthead">
-    <div class="masthead__inner">
-      <p class="masthead__title"><a href="#overview">Jianhua Wang / Homepage</a></p>
-      <ul class="masthead__nav" aria-label="Primary navigation">
-        <li><a href="#overview">Intro</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#publications">Works</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <header class="top">
+   <div class="top-inner">
+    <a class="brand" href="#about">
+     Jianhua Wang
+    </a>
+    <nav aria-label="Main navigation" class="nav">
+     <a href="#about">
+      About
+     </a>
+     <a href="#news">
+      News
+     </a>
+     <a href="#research">
+      Research
+     </a>
+     <a href="#publications">
+      Publications
+     </a>
+     <a href="#projects">
+      Projects
+     </a>
+     <a href="#honors">
+      Honors
+     </a>
+     <a href="#education">
+      Education
+     </a>
+     <a href="#contact">
+      Contact
+     </a>
+    </nav>
+   </div>
   </header>
-
-  <div id="main">
-    <div class="layout">
-      <aside class="sidebar" aria-label="Profile">
-        <img
-          class="author__avatar"
-          src="https://ui-avatars.com/api/?name=Jianhua+Wang&size=512&background=ca6f6f&color=ffffff&bold=true&format=png"
-          width="205"
-          height="205"
-          alt="Portrait placeholder for Jianhua Wang"
-        >
-        <div class="author__content">
-          <h3 class="author__name">Jianhua Wang</h3>
-          <p class="author__bio">Undergraduate in Electronic Engineering · signal processing &amp; intelligent systems</p>
-          <ul class="author__urls">
-            <li>
-              <a href="https://github.com/jianhw" target="_blank" rel="noreferrer">
-                <i class="fa-brands fa-github" aria-hidden="true"></i> Github
-              </a>
-            </li>
-            <li>
-              <a href="https://en.xidian.edu.cn/" target="_blank" rel="noreferrer">
-                <i class="fa-solid fa-building-columns" aria-hidden="true"></i> Xidian University
-              </a>
-            </li>
-          </ul>
-        </div>
-      </aside>
-
-      <article class="page">
-        <section class="page__content" id="main-content">
-          <header id="overview" data-section>
-            <h1 class="main-heading">Hi there 👋 Welcome to my Homepage!</h1>
-            <p>
-              I am an undergraduate student in <a href="https://en.xidian.edu.cn/" target="_blank" rel="noreferrer">Electronic Engineering</a> at
-              <a href="https://en.xidian.edu.cn/" target="_blank" rel="noreferrer">Xidian University</a>. I explore how signal processing, optimization, and artificial intelligence can work together to solve real engineering problems.
-            </p>
-            <p>
-              My current interests span computer vision, joint radar-communication waveform design, and efficient optimization methods. I enjoy connecting mathematical ideas with reproducible simulations and learning-based systems. Find code and experiments on
-              <a href="https://github.com/jianhw" target="_blank" rel="noreferrer">GitHub</a>.
-            </p>
-          </header>
-
-          <h2>News</h2>
-          <section class="profile-list-section" aria-label="Latest news">
-            <ul class="profile-list">
-              <li class="profile-list__item">
-                <span class="profile-list__date">2026</span>
-                <div>
-                  <div class="profile-list__title">Paper published in <em>Biophysical Chemistry</em></div>
-                  <div class="profile-list__meta">iAFP-fLRM · hybrid deep learning for antifungal peptide identification</div>
-                </div>
-              </li>
-              <li class="profile-list__item">
-                <span class="profile-list__date">Ongoing</span>
-                <div>
-                  <div class="profile-list__title">OCDM waveform optimization</div>
-                  <div class="profile-list__meta">Majorization–Minimization · MATLAB simulations</div>
-                </div>
-              </li>
-            </ul>
-          </section>
-
-          <h2 id="research" data-section>Research</h2>
-          <p>I am interested in methods that connect rigorous optimization with modern learning systems, particularly for sensing and communication.</p>
-          <div class="interest-grid" aria-label="Research interests">
-            <div class="interest-card"><small>01</small>Computer Vision</div>
-            <div class="interest-card"><small>02</small>Signal Processing</div>
-            <div class="interest-card"><small>03</small>Joint Radar-Communication Waveform Design</div>
-            <div class="interest-card"><small>04</small>Optimization Algorithms</div>
-          </div>
-
-          <h2 id="education" data-section>Education</h2>
-          <div class="experience-container">
-            <div class="experience-card">
-              <img class="experience-logo" src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8a/Xidian_University_logo.svg/120px-Xidian_University_logo.svg.png" width="36" height="36" alt="">
-              <div class="experience-info">
-                <strong>Xidian University</strong>
-                <span class="experience-date">Undergraduate</span>
-                <span>Electronic Engineering · signal processing and intelligent systems</span>
-              </div>
-            </div>
-          </div>
-
-          <h2 id="publications" data-section>Works</h2>
-          <article class="publication-card">
-            <div class="pub-media" aria-hidden="true">📄</div>
-            <div class="pub-body">
-              <strong>iAFP-fLRM: Accurate identification of antifungal peptides via hybrid deep learning architecture and multi-modal feature fusion</strong>
-              <p class="pub-authors">
-                Shengli Zhang, Jianwei Cheng, Guixu Zhou, <span class="self-author">Jianhua Wang</span>
-              </p>
-              <div class="pub-meta-row">
-                <span class="pub-venue"><em>Biophysical Chemistry</em>, 332, 107591 (2026)</span>
-                <span class="pub-links">
-                  <a href="https://doi.org/10.1016/j.bpc.2026.107591" target="_blank" rel="noreferrer">[DOI]</a>
-                  <a href="https://github.com/blue-tsuki/iAFP-fLRM" target="_blank" rel="noreferrer">[code]</a>
-                </span>
-              </div>
-            </div>
-          </article>
-
-          <h2 id="projects" data-section>Projects</h2>
-          <p>Optimization-based signal design for efficient sensing and communication systems.</p>
-          <article class="project-card">
-            <div class="pub-media" aria-hidden="true">📡</div>
-            <div class="pub-body">
-              <span class="project-type">Signal processing</span>
-              <strong>OCDM / Single-Carrier Signal Optimization</strong>
-              <p style="margin:0;line-height:1.45;font-size:0.78rem;">
-                An ongoing study of OCDM waveform optimization using the Majorization-Minimization algorithm. The objective is to formulate waveforms with low integrated sidelobe level and peak-to-average power ratio, supported by MATLAB simulations for waveform shaping and sidelobe suppression.
-              </p>
-              <div class="tags" aria-label="Project topics">
-                <span class="tag">OCDM</span>
-                <span class="tag">MM algorithm</span>
-                <span class="tag">MATLAB</span>
-              </div>
-            </div>
-          </article>
-
-          <h2 id="contact" data-section>Contact</h2>
-          <p>
-            I am always interested in thoughtful research conversations and new ideas. Explore my repositories and ongoing experiments on
-            <a href="https://github.com/jianhw" target="_blank" rel="noreferrer">GitHub</a>.
-          </p>
-        </section>
-      </article>
+  <div class="layout">
+   <aside aria-label="Profile" class="sidebar">
+    <img alt="Initials placeholder; replace with your portrait" class="avatar" src="https://ui-avatars.com/api/?name=Jianhua+Wang&amp;size=400&amp;background=e9eff6&amp;color=245b93&amp;bold=true"/>
+    <h2 class="name">
+     Jianhua Wang
+    </h2>
+    <p class="side-role">
+     Undergraduate Researcher
+     <br/>
+     Xidian University
+     <br/>
+     Xi'an, China
+    </p>
+    <div class="side-links">
+     <a href="mailto:Jianhw0808@gmail.com">
+      ✉ Email
+     </a>
+     <a href="https://github.com/JianhW" rel="noopener noreferrer" target="_blank">
+      ↗ GitHub
+     </a>
+     <a href="CV.pdf" rel="noopener noreferrer" target="_blank">
+      ↓ Curriculum Vitae
+     </a>
     </div>
+   </aside>
+   <main class="main" id="main">
+    <section id="about">
+     <h1 class="intro-title">
+      About Me
+     </h1>
+     <p class="lead">
+      I am an undergraduate student majoring in
+      <strong>
+       Electronic Information Engineering
+      </strong>
+      at the
+      <a href="https://en.xidian.edu.cn/" rel="noopener noreferrer" target="_blank">
+       School of Electronic Engineering, Xidian University
+      </a>
+      (2024–2028). My research interests lie at the intersection of
+      <strong>
+       computer vision, multimodal learning, signal processing, and optimization
+      </strong>
+      .
+     </p>
+     <p>
+      I work on compositional zero-shot learning and test-time adaptation, as well as integrated radar-communication waveform design. I am interested in developing principled and practical methods that generalize to challenging real-world settings.
+     </p>
+     <p class="small">
+      Academic standing: 7/411 overall; 2/411 in academic performance.
+     </p>
+    </section>
+    <section class="section" id="news">
+     <h2>
+      News
+     </h2>
+     <ul class="news">
+      <li>
+       <span class="date">
+        Oct. 2026
+       </span>
+       <span>
+        Awarded the
+        <strong>
+         National Scholarship
+        </strong>
+        .
+       </span>
+      </li>
+      <li>
+       <span class="date">
+        2026
+       </span>
+       <span>
+        Our work
+        <strong>
+         iAFP-fLRM
+        </strong>
+        was published in
+        <em>
+         Biophysical Chemistry
+        </em>
+        .
+       </span>
+      </li>
+      <li>
+       <span class="date">
+        2026
+       </span>
+       <span>
+        Our
+        <strong>
+         PRISM
+        </strong>
+        paper is under review for AAAI 2027.
+       </span>
+      </li>
+     </ul>
+    </section>
+    <section class="section" id="research">
+     <h2>
+      Research Interests
+     </h2>
+     <p>
+      My work explores how structured representations, data-driven learning, and mathematical optimization can improve generalization and engineering performance.
+     </p>
+     <div class="research-tags">
+      <span>
+       Computer Vision
+      </span>
+      <span>
+       Compositional Zero-Shot Learning
+      </span>
+      <span>
+       Multimodal Learning
+      </span>
+      <span>
+       Test-Time Adaptation
+      </span>
+      <span>
+       Signal Processing
+      </span>
+      <span>
+       Waveform Optimization
+      </span>
+     </div>
+    </section>
+    <section class="section" id="publications">
+     <h2>
+      Publications &amp; Manuscripts
+     </h2>
+     <article class="entry">
+      <h3>
+       PRISM: Primitive-Integrated Separable Modulation with Priority Visual Memory Queue for Compositional Zero-Shot Learning
+       <span class="status">
+        Under Review
+       </span>
+      </h3>
+      <p class="authors">
+       <span class="self">
+        Jianhua Wang
+       </span>
+       , Zhihang Zheng, Yang Liu
+      </p>
+      <p class="meta">
+       Submitted to AAAI 2027 · Under second-round review (as of Oct. 2026)
+      </p>
+      <p class="description">
+       A compositional test-time adaptation framework that transfers evidence from unlabeled test streams using hierarchical residual representations and priority visual memory, with an adaptive candidate-selection route for scalable inference.
+      </p>
+     </article>
+     <article class="entry">
+      <h3>
+       iAFP-fLRM: Accurate identification of antifungal peptides via hybrid deep learning architecture and multi-modal feature fusion
+      </h3>
+      <p class="authors">
+       Shengli Zhang, Jianwei Cheng, Guixu Zhou,
+       <span class="self">
+        Jianhua Wang
+       </span>
+      </p>
+      <p class="meta">
+       <span class="venue">
+        Biophysical Chemistry
+       </span>
+       , 332, 107591 (2026)
+      </p>
+      <p class="links">
+       <a href="https://doi.org/10.1016/j.bpc.2026.107591" rel="noopener noreferrer" target="_blank">
+        [DOI]
+       </a>
+       <a href="https://github.com/blue-tsuki/iAFP-fLRM" rel="noopener noreferrer" target="_blank">
+        [Code]
+       </a>
+      </p>
+     </article>
+    </section>
+    <section class="section" id="projects">
+     <h2>
+      Research Experience &amp; Projects
+     </h2>
+     <article class="entry">
+      <div class="entry-head">
+       <div class="project-heading">
+        Compositional Zero-Shot Learning · Project Lead, First Author
+       </div>
+       <span class="date">
+        Mar. 2026 – Present
+       </span>
+      </div>
+      <div class="project-meta">
+       Provincial Innovation and Entrepreneurship Training Program · Funded
+      </div>
+      <p>
+       Developed PRISM to extend primitive sharing from offline representation learning to unlabeled test streams. Evaluated compositional recognition in large-scale open-world and long-tailed settings and introduced Adaptive PRISM-Lite to reduce repeated candidate evaluation.
+      </p>
+     </article>
+     <article class="entry">
+      <div class="entry-head">
+       <div class="project-heading">
+        Deep Learning for Antifungal Peptide Identification · Core Member (1/3)
+       </div>
+       <span class="date">
+        Dec. 2024 – Nov. 2025
+       </span>
+      </div>
+      <div class="project-meta">
+       Provincial Innovation and Entrepreneurship Training Program · Rated Excellent
+      </div>
+      <p>
+       Contributed to amino acid sequence fusion and screening, implementation, and manuscript preparation. Combined Transformer, CNN, LSTM, and BLOSUM62 features to predict antifungal activity from peptide sequences, achieving
+       <strong>
+        95.02% accuracy
+       </strong>
+       .
+      </p>
+     </article>
+     <article class="entry">
+      <div class="entry-head">
+       <div class="project-heading">
+        Integrated Radar-Communication Waveform Design · Core Member (1/5)
+       </div>
+       <span class="date">
+        Apr. 2025 – Present
+       </span>
+      </div>
+      <p>
+       Developed a joint optimization formulation for periodic/aperiodic integrated sidelobe levels and peak-to-average power ratio (PAPR), subject to fixed communication-symbol constraints. Derived a two-stage majorization–minimization algorithm with closed-form updates.
+      </p>
+      <p>
+       Across 1,000 Monte Carlo simulations, mean PAPR decreased from
+       <strong>
+        6.76 dB to 2.46 dB
+       </strong>
+       while preserving bit-error-rate performance close to the original OCDM waveform.
+      </p>
+     </article>
+    </section>
+    <section class="section" id="honors">
+     <h2>
+      Selected Honors &amp; Awards
+     </h2>
+     <ul class="honors">
+      <li>
+       <span class="date">
+        Oct. 2026
+       </span>
+       <span>
+        <strong>
+         National Scholarship
+        </strong>
+       </span>
+      </li>
+      <li>
+       <span class="date">
+        Oct. 2026
+       </span>
+       <span>
+        Outstanding Student Award, Xidian University
+       </span>
+      </li>
+      <li>
+       <span class="date">
+        May 2026
+       </span>
+       <span>
+        Special Prize, Spark Cup Academic Competition, School of Electronic Engineering
+       </span>
+      </li>
+      <li>
+       <span class="date">
+        May 2026
+       </span>
+       <span>
+        First Prize (University Level), National Undergraduate Statistical Modeling Competition
+       </span>
+      </li>
+      <li>
+       <span class="date">
+        Dec. 2025
+       </span>
+       <span>
+        Second Prize (Shaanxi Province), Chinese Mathematics Competitions for College Students
+       </span>
+      </li>
+      <li>
+       <span class="date">
+        Nov. 2025
+       </span>
+       <span>
+        Second Prize (Shaanxi Province), Contemporary Undergraduate Mathematical Contest in Modeling
+       </span>
+      </li>
+      <li>
+       <span class="date">
+        Oct. 2025
+       </span>
+       <span>
+        First-Class Academic Scholarship, Xidian University
+       </span>
+      </li>
+     </ul>
+     <p class="small" style="margin-top:12px">
+      Additional awards and activities are listed in my
+      <a href="CV.pdf">
+       CV
+      </a>
+      .
+     </p>
+    </section>
+    <section class="section" id="education">
+     <h2>
+      Education
+     </h2>
+     <div class="education-line">
+      <strong>
+       Xidian University
+      </strong>
+      <span class="date">
+       Sep. 2024 – Jun. 2028 (expected)
+      </span>
+     </div>
+     <p>
+      Electronic Information Engineering, School of Electronic Engineering
+      <br/>
+      <span class="small">
+       Xi'an, Shaanxi, China
+      </span>
+     </p>
+     <p class="small">
+      Selected coursework: C Programming (100), Python Programming (99), Advanced Mathematics (95), EDA (90).
+     </p>
+    </section>
+    <section class="section" id="skills">
+     <h2>
+      Technical Skills
+     </h2>
+     <dl class="skills">
+      <dt>
+       Programming
+      </dt>
+      <dd>
+       C, Python, MATLAB, Verilog
+      </dd>
+      <dt>
+       Deep Learning
+      </dt>
+      <dd>
+       PyTorch, CNN, LSTM, Transformer
+      </dd>
+      <dt>
+       English
+      </dt>
+      <dd>
+       CET-4: 562; CET-6: 532
+      </dd>
+     </dl>
+    </section>
+    <section class="section" id="contact">
+     <h2>
+      Contact
+     </h2>
+     <p>
+      I'm happy to connect about research ideas and potential collaborations.
+     </p>
+     <p class="contact-email">
+      Email:
+      <a href="mailto:Jianhw0808@gmail.com">
+       Jianhw0808@gmail.com
+      </a>
+      <br/>
+      GitHub:
+      <a href="https://github.com/JianhW" rel="noopener noreferrer" target="_blank">
+       github.com/JianhW
+      </a>
+     </p>
+    </section>
+   </main>
   </div>
-
-  <footer class="site-footer">
-    <span>&copy; <span id="year">2026</span> Jianhua Wang</span>
+  <footer class="footer">
+   ©
+   <span id="year">
+    2026
+   </span>
+   Jianhua Wang · Last updated October 2026
   </footer>
-
   <script>
-    document.querySelector("#year").textContent = new Date().getFullYear();
-
-    const sections = Array.from(document.querySelectorAll("[data-section]"));
-    const navLinks = Array.from(document.querySelectorAll(".masthead__nav a[href^='#']"));
-
-    const sectionObserver = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-      if (!visible) return;
-
-      navLinks.forEach((link) => {
-        const isCurrent = link.getAttribute("href") === `#${visible.target.id}`;
-        if (isCurrent) link.setAttribute("aria-current", "true");
-        else link.removeAttribute("aria-current");
-      });
-    }, { rootMargin: "-22% 0px -62% 0px", threshold: [0, 0.15, 0.4] });
-
-    sections.forEach((section) => sectionObserver.observe(section));
+   document.getElementById('year').textContent=new Date().getFullYear()
   </script>
-</body>
+ </body>
 </html>
